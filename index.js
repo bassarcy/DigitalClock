@@ -1,4 +1,8 @@
-const date = new Date();
+function setDate() {
+    return new Date()
+}
+
+const date = setDate()
 
 function adjustHours(date) {
     if(date.getHours() > 12) {
@@ -27,10 +31,14 @@ function setMeridian(date) {
 };
 
 function tellTime() {
-    document.getElementById("time").textContent = `${adjustHours(date)}:${adjustMinutes(date)} ${setMeridian(date)}`
+    let date = new Date()
+    return document.getElementById("time").textContent = `${adjustHours(date)}:${adjustMinutes(date)} ${setMeridian(date)}`;
+    
+        
 };
 
 console.log(adjustHours(date));
 console.log(adjustMinutes(date));
 
 tellTime();
+setInterval(tellTime, 60000);
